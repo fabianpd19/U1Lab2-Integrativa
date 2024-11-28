@@ -1,4 +1,4 @@
-// Módulo TaskManager.js
+
 export default class TaskManager {
     constructor() {
         this.tasks = [];
