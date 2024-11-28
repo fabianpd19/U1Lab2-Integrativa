@@ -1,0 +1,19 @@
+WordGestor	
+	
+Gestion de tareas(editar, eliminar, insertar), con linea de tiempo, porcentaje
+
+Proposito:
+- Insertar - eliminar - insertar, tareas en targetillas. 
+- Se define fechas - creacion, inicio, fin de actividad. 
+- Ejemplo visual (linea de tiempo)
+- Porcentaje de progreso. 
+
+Es Modules.
+....
+Gestión de Tareas 
+Línea de Tiempo
+Progreso
+Interfaz de Usuario
+
+
+una paguina principal. 
