@@ -1,11 +1,8 @@
-// Módulo dom.js
-
-// Función para actualizar la línea de tiempo en el DOM
 export function updateTimeline(tasks) {
   const timelineContainer = document.getElementById("timelineContainer");
   timelineContainer.innerHTML = ""; // Limpiar la línea de tiempo
 
-  tasks.forEach((task) => {
+  tasks.forEach((task, index) => {
     // Crear el contenedor principal de la tarea
     const colDiv = document.createElement("div");
     colDiv.className = "col-md-6";
@@ -33,10 +30,17 @@ export function updateTimeline(tasks) {
       task.end_time
     ).toLocaleString()}`;
 
+    // Botón de eliminar
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "btn btn-danger btn-sm mt-2";
+    deleteButton.textContent = "Eliminar";
+    deleteButton.dataset.index = index; // Guardar el índice de la tarea
+
     // Añadir los elementos al contenedor de la tarjeta
     customCard.appendChild(taskTitle);
     customCard.appendChild(taskDescription);
     customCard.appendChild(taskTime);
+    customCard.appendChild(deleteButton);
 
     // Añadir la tarjeta al contenedor de columna
     colDiv.appendChild(customCard);
