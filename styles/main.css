@@ -1,64 +1,78 @@
+/* General */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
 }
 
-.timeline-section {
-    position: relative;
+/* Header personalizado */
+.custom-header {
+    background: linear-gradient(135deg, #007bff, #4c69ff);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-    padding: 0;
-    list-style: none;
+/* Títulos */
+.custom-title {
+    color: #4c69ff;
+    font-weight: 700;
+    border-bottom: 2px solid #4c69ff;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.timeline-item {
-    display: flex;
-    position: relative;
-    margin-bottom: 30px;
-    padding-left: 50px;
+/* Tarjetas personalizadas */
+.custom-card {
+    background-color: #fff;
+    border-radius: 15px;
+    border: none;
+    overflow: hidden;
 }
 
-.timeline-marker {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    background-color: #0d6efd;
-    border: 4px solid white;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.timeline-content {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-.timeline-title {
-    margin-top: 0;
-    color: #0d6efd;
+/* Formulario */
+.custom-label {
+    color: #4c69ff;
     font-weight: bold;
 }
 
-.timeline-date {
-    font-size: 0.9rem;
-    color: #6c757d;
+.custom-input,
+.custom-textarea {
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
 }
 
-.task-list {
-    padding-left: 20px;
-    margin: 0;
-    list-style-type: square;
+.custom-input:focus,
+.custom-textarea:focus {
+    border-color: #4c69ff;
+    box-shadow: 0 0 5px rgba(76, 105, 255, 0.5);
 }
 
-.task-list li {
-    margin-bottom: 5px;
+/* Botones */
+.custom-btn {
+    background-color: #4c69ff;
+    color: white;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+    background-color: #355bd6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Línea de tiempo */
+.custom-task-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4c69ff;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .custom-title {
+        font-size: 1.5rem;
+    }
+
+    .custom-btn {
+        font-size: 0.9rem;
+    }
 }
