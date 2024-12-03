@@ -78,17 +78,6 @@ body {
 }
 
 
-
-/* Línea de tiempo */
-#timelineContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
 /* Tarea individual en la línea de tiempo */
 .col-md-6 {
     display: flex;
