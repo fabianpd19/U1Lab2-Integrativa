@@ -6,25 +6,25 @@ export function updateTimeline(tasks) {
   timelineContainer.innerHTML = ""; // Limpiar la línea de tiempo
 
   tasks.forEach((task) => {
-    // Crear el contenedor principal de la tarea
+    // ------------------- contenedor principal 
     const colDiv = document.createElement("div");
     colDiv.className = "col-md-6";
 
-    // Crear el contenedor estilizado para la tarea
+    // -----    contenedor de la tarjeta
     const customCard = document.createElement("div");
     customCard.className = "custom-card shadow-sm p-3";
 
-    // Título de la tarea
+    // ------- Título 
     const taskTitle = document.createElement("h5");
     taskTitle.className = "custom-task-title";
     taskTitle.textContent = task.title;
 
-    // Descripción de la tarea
+    // --------------- Descripción 
     const taskDescription = document.createElement("p");
     taskDescription.className = "mb-2";
     taskDescription.textContent = task.description;
 
-    // Información de inicio y fin
+    // ------------- inicio y fin
     const taskTime = document.createElement("p");
     taskTime.className = "text-muted small";
     taskTime.innerHTML = `<strong>Inicio:</strong> ${new Date(
