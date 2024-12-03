@@ -9,10 +9,15 @@ export default class TaskManager {
   }
 
   removeTask(index) {
+    // Debe ser menor que la longitud del array de tareas (dentro del rango válido).
     if (index >= 0 && index < this.tasks.length) {
-      this.tasks.splice(index, 1); // Eliminar tarea por índice
+      // Si el índice es válido, utiliza el método splice para eliminar la tarea.
+      this.tasks.splice(index, 1); // Elimina la tarea en la posición indicada.
+      // El primer parámetro indica desde donde se comienza a eliminar.
+      // El segundo parámetro la cantidad de elementos a eliminar.
     }
   }
+
 
   getTasks() {
     return this.tasks;
