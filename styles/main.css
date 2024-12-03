@@ -76,3 +76,92 @@ body {
         font-size: 0.9rem;
     }
 }
+
+
+
+/* Línea de tiempo */
+#timelineContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Tarea individual en la línea de tiempo */
+.col-md-6 {
+    display: flex;
+    justify-content: center;
+}
+
+/* Tarjetas de la línea de tiempo */
+.custom-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding: 20px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Animación de entrada de las tareas */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Título de la tarea */
+.custom-task-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4c69ff;
+    margin-bottom: 10px;
+}
+
+/* Descripción de la tarea */
+.custom-card p {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Información de fecha */
+.custom-card .text-muted {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Botón de eliminar */
+.custom-card .btn-danger {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+/* Hover efecto en el botón de eliminar */
+.custom-card .btn-danger:hover {
+    background-color: #ff5c5c;
+}
+
+
+/* Estilo para los botones de eliminar */
+.custom-card .btn {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-card .btn:hover {
+    background-color: #355bd6;
+    transform: scale(1.1);
+}
