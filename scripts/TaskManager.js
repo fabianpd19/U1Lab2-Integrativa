@@ -25,6 +25,13 @@ export default class TaskManager {
     }
   }
 
+  unmarkAsCompleted(index) {
+    // Nueva función
+    if (index >= 0 && index < this.tasks.length) {
+      this.tasks[index].completed = false;
+    }
+  }
+
   getTasks() {
     return this.tasks;
   }

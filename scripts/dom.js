@@ -44,11 +44,18 @@ export function updateTimeline(tasks) {
     deleteButton.textContent = "Eliminar"; // Texto del botón
     deleteButton.dataset.index = index; // Guardar el índice de la tarea
 
+    const undoButton = document.createElement("button");
+    undoButton.className = "btn btn-warning btn-sm me-2";
+    undoButton.textContent = "Deshacer";
+    undoButton.dataset.index = index;
+    undoButton.style.display = task.completed ? "inline-block" : "none"; // Mostrar solo si está completada
+
     // Añadir los elementos al contenedor de la tarjeta
     customCard.appendChild(taskTitle);
     customCard.appendChild(taskDescription);
     customCard.appendChild(taskTime);
     customCard.appendChild(completeButton);
+    customCard.appendChild(undoButton);
     customCard.appendChild(deleteButton);
 
     // Añadir la tarjeta al contenedor de columna

@@ -47,6 +47,8 @@ document.getElementById("taskForm").addEventListener("submit", (e) => {
 
 // Manejar la eliminación de tareas
 document.getElementById("timelineContainer").addEventListener("click", (e) => {
+  const index = parseInt(e.target.dataset.index, 10);
+
   if (e.target.classList.contains("btn-danger")) {
     // Si se hace clic en un botón de eliminar
     const index = parseInt(e.target.dataset.index, 10); // Obtener índice de la tarea
@@ -59,5 +61,11 @@ document.getElementById("timelineContainer").addEventListener("click", (e) => {
     const index = parseInt(e.target.dataset.index, 10); // Obtener índice de la tarea
     taskManager.markAsCompleted(index); // Marcar tarea como realizada en el TaskManager
     updateTimeline(taskManager.getTasks()); // Actualizar la línea de tiempo
+  }
+
+  if (e.target.classList.contains("btn-warning")) {
+    // Manejar botón "Deshacer"
+    taskManager.unmarkAsCompleted(index); // Desmarcar tarea como completada
+    updateTimeline(taskManager.getTasks());
   }
 });
