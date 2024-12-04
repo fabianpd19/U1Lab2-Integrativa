@@ -23,10 +23,10 @@ document.getElementById("taskForm").addEventListener("submit", (e) => {
     alert("La hora de inicio debe ser anterior a la hora de finalización.");
     return;
   }
-  if (new Date(start_time) < new Date()) {
+  /* if (new Date(start_time) <= new Date()) {
     alert("La hora de inicio no puede ser en el pasado.");
     return;
-  }
+  } */
   if (new Date(end_time) < new Date()) {
     alert("La hora de finalización no puede ser en el pasado.");
     return;

@@ -10,7 +10,7 @@ export function updateTimeline(tasks) {
     // Crear el contenedor estilizado para la tarea
     const customCard = document.createElement("div");
     customCard.className = `custom-card shadow-sm p-3 ${
-      task.completed ? "bg-success text-white" : ""
+      task.completed ? "text-white" : ""
     }`; // Si la tarea está realizada, se añade una clase de estilo diferente
 
     // Título de la tarea
