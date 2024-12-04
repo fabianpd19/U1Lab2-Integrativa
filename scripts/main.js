@@ -1,22 +1,22 @@
-import TaskManager from './TaskManager.js';
-import { updateTimeline } from './dom.js';
+import TaskManager from "./TaskManager.js";
+import { updateTimeline } from "./dom.js";
 
 // Inicializar el TaskManager
 const taskManager = new TaskManager();
 
 // Manejar el formulario de añadir tarea
-document.getElementById('taskForm').addEventListener('submit', (e) => {
+document.getElementById("taskForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
   // Obtener datos del formulario
-  const title = document.getElementById('title').value;
-  const description = document.getElementById('description').value;
-  const start_time = document.getElementById('start_time').value;
-  const end_time = document.getElementById('end_time').value;
+  const title = document.getElementById("title").value;
+  const description = document.getElementById("description").value;
+  const start_time = document.getElementById("start_time").value;
+  const end_time = document.getElementById("end_time").value;
 
   // Validar campos
   if (!title || !description || !start_time || !end_time) {
-    alert('Todos los campos son obligatorios.');
+    alert("Todos los campos son obligatorios.");
     return;
   }
 
@@ -34,10 +34,18 @@ document.getElementById('taskForm').addEventListener('submit', (e) => {
 });
 
 // Manejar la eliminación de tareas
-document.getElementById('timelineContainer').addEventListener('click', (e) => {
-  if (e.target.classList.contains('btn-danger')) {
+document.getElementById("timelineContainer").addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-danger")) {
+    // Si se hace clic en un botón de eliminar
     const index = parseInt(e.target.dataset.index, 10); // Obtener índice de la tarea
     taskManager.removeTask(index); // Eliminar tarea del TaskManager
+    updateTimeline(taskManager.getTasks()); // Actualizar la línea de tiempo
+  }
+
+  if (e.target.classList.contains("btn-success")) {
+    // Si se hace clic en un botón de marcar como realizada
+    const index = parseInt(e.target.dataset.index, 10); // Obtener índice de la tarea
+    taskManager.markAsCompleted(index); // Marcar tarea como realizada en el TaskManager
     updateTimeline(taskManager.getTasks()); // Actualizar la línea de tiempo
   }
 });

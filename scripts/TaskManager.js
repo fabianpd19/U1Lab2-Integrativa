@@ -18,6 +18,12 @@ export default class TaskManager {
     }
   }
 
+  markAsCompleted(index) {
+    // Verificar si el índice es válido
+    if (index >= 0 && index < this.tasks.length) {
+      this.tasks[index].completed = true; // Marcar la tarea como realizada
+    }
+  }
 
   getTasks() {
     return this.tasks;

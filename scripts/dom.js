@@ -9,7 +9,9 @@ export function updateTimeline(tasks) {
 
     // Crear el contenedor estilizado para la tarea
     const customCard = document.createElement("div");
-    customCard.className = "custom-card shadow-sm p-3";
+    customCard.className = `custom-card shadow-sm p-3 ${
+      task.completed ? "bg-success text-white" : ""
+    }`; // Si la tarea está realizada, se añade una clase de estilo diferente
 
     // Título de la tarea
     const taskTitle = document.createElement("h5");
@@ -30,16 +32,23 @@ export function updateTimeline(tasks) {
       task.end_time
     ).toLocaleString()}`;
 
+    // Botón de marcar como realizada
+    const completeButton = document.createElement("button");
+    completeButton.className = "btn btn-success btn-sm me-2"; // Botón de éxito
+    completeButton.textContent = "Marcar como realizada"; // Texto del botón
+    completeButton.dataset.index = index; // Guardar el índice de la tarea
+
     // Botón de eliminar
     const deleteButton = document.createElement("button");
-    deleteButton.className = "btn btn-danger btn-sm mt-2";
-    deleteButton.textContent = "Eliminar";
+    deleteButton.className = "btn btn-danger btn-sm"; // Botón de eliminar
+    deleteButton.textContent = "Eliminar"; // Texto del botón
     deleteButton.dataset.index = index; // Guardar el índice de la tarea
 
     // Añadir los elementos al contenedor de la tarjeta
     customCard.appendChild(taskTitle);
     customCard.appendChild(taskDescription);
     customCard.appendChild(taskTime);
+    customCard.appendChild(completeButton);
     customCard.appendChild(deleteButton);
 
     // Añadir la tarjeta al contenedor de columna
@@ -48,4 +57,20 @@ export function updateTimeline(tasks) {
     // Añadir la columna al contenedor principal
     timelineContainer.appendChild(colDiv);
   });
+
+  // Actualizar barra de progreso
+  updateProgress(tasks); // Llama a la función para actualizar la barra de progreso
+}
+
+export function updateProgress(tasks) {
+  // Filtrar las tareas completadas
+  const completedTasks = tasks.filter((task) => task.completed).length;
+  const totalTasks = tasks.length; // Número total de tareas
+  const progress =
+    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100); // Calcular el porcentaje de progreso
+
+  // Actualizar la barra de progreso
+  const progressBar = document.getElementById("progressBar");
+  progressBar.style.width = `${progress}%`; // Cambiar el ancho de la barra
+  progressBar.textContent = `${progress}% Completado`; // Mostrar el porcentaje en texto
 }
