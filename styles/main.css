@@ -294,6 +294,8 @@ body {
     border-radius: 10px;
     font-weight: 500;
     transition: all 0.3s ease;
+    background-color: #3780b8;
+    color: #f0f9ff;
 }
 
 .btn-primary {
