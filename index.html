@@ -53,7 +53,8 @@
                     <a href="#tareas" class="btn btn-primary btn-lg">Comenzar ahora</a>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://source.unsplash.com/random/600x400/?productivity" alt="Hero image" class="img-fluid rounded-3 shadow-lg">
+                    <img src="https://source.unsplash.com/random/600x400/?productivity" alt="Hero image"
+                        class="img-fluid rounded-3 shadow-lg">
                 </div>
             </div>
         </div>
@@ -90,62 +91,59 @@
     </section>
 
     <!-- Task Management Section -->
-    <section id="tareas" class="task-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Gestión de Tareas</h2>
-            <!-- Formulario existente -->
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="custom-card shadow-lg p-4 mb-5">
-                        <h3 class="text-center custom-title mb-4">Añadir Tarea</h3>
-                        <form id="taskForm">
-                            <div class="mb-3">
-                                <label for="title" class="form-label">Título:</label>
-                                <input type="text" id="title" name="title" class="form-control"
-                                    placeholder="Título de la tarea" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="description" class="form-label">Descripción:</label>
-                                <textarea id="description" name="description" class="form-control" rows="3"
-                                    placeholder="Descripción detallada" required></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="start_time" class="form-label">Inicio:</label>
-                                    <input type="datetime-local" id="start_time" name="start_time"
-                                        class="form-control" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="end_time" class="form-label">Fin:</label>
-                                    <input type="datetime-local" id="end_time" name="end_time" class="form-control"
-                                        required>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Añadir Tarea</button>
-                        </form>
+    <main class="container py-5">
+        <!-- Sección del formulario -->
+        <section class="mb-5">
+            <div class="custom-card shadow-lg p-4">
+                <h2 class="text-center custom-title mb-4">Añadir Tarea</h2>
+                <form id="taskForm">
+                    <div class="mb-3">
+                        <label for="title" class="form-label custom-label">Título:</label>
+                        <input type="text" id="title" name="title" class="form-control custom-input"
+                            placeholder="Título de la tarea" required>
                     </div>
-                </div>
-            </div>
-
-            <!-- Progress Bar -->
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h3 class="text-center mb-3">Progreso</h3>
-                    <div class="progress">
-                        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
-                             role="progressbar" style="width: 0%;">
-                            0% Completado
+                    <div class="mb-3">
+                        <label for="description" class="form-label custom-label">Descripción:</label>
+                        <textarea id="description" name="description" class="form-control custom-textarea" rows="3"
+                            placeholder="Descripción detallada" required></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="start_time" class="form-label custom-label">Inicio:</label>
+                            <input type="datetime-local" id="start_time" name="start_time"
+                                class="form-control custom-input" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="end_time" class="form-label custom-label">Fin:</label>
+                            <input type="datetime-local" id="end_time" name="end_time" class="form-control custom-input"
+                                required>
                         </div>
                     </div>
+                    <button type="submit" class="btn custom-btn w-100">Añadir Tarea</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Barra de progreso -->
+        <section class="mb-5">
+            <h3 class="text-center custom-title mb-3">Progreso</h3>
+            <div class="progress">
+                <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%;"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    0% Completado
                 </div>
             </div>
+        </section>
 
-            <!-- Timeline -->
+
+        <!-- Línea de tiempo -->
+        <section>
+            <h2 class="text-center custom-title mb-4">Tareas</h2>
             <div id="timelineContainer" class="row g-4">
-                <!-- Las tareas se generarán aquí dinámicamente -->
+
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Team Section -->
     <section id="equipo" class="team-section py-5">
@@ -198,7 +196,8 @@
                                 <small class="text-muted">Emprendedor</small>
                             </div>
                         </div>
-                        <p class="mb-0">"TaskFlow ha revolucionado la forma en que gestiono mis proyectos. La interfaz es intuitiva y las funcionalidades son exactamente lo que necesitaba."</p>
+                        <p class="mb-0">"TaskFlow ha revolucionado la forma en que gestiono mis proyectos. La interfaz
+                            es intuitiva y las funcionalidades son exactamente lo que necesitaba."</p>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -210,7 +209,8 @@
                                 <small class="text-muted">Diseñadora Freelance</small>
                             </div>
                         </div>
-                        <p class="mb-0">"Desde que empecé a usar TaskFlow, mi productividad ha aumentado significativamente. Es una herramienta esencial en mi día a día."</p>
+                        <p class="mb-0">"Desde que empecé a usar TaskFlow, mi productividad ha aumentado
+                            significativamente. Es una herramienta esencial en mi día a día."</p>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -222,7 +222,8 @@
                                 <small class="text-muted">Project Manager</small>
                             </div>
                         </div>
-                        <p class="mb-0">"La mejor herramienta de gestión de tareas que he probado. Simple, efectiva y con todas las funciones necesarias."</p>
+                        <p class="mb-0">"La mejor herramienta de gestión de tareas que he probado. Simple, efectiva y
+                            con todas las funciones necesarias."</p>
                     </div>
                 </div>
             </div>
