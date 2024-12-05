@@ -45,8 +45,10 @@ document.getElementById("taskForm").addEventListener("submit", (e) => {
   e.target.reset();
 });
 
-// Manejar la eliminación de tareas
-document.getElementById("timelineContainer").addEventListener("click", (e) => {
+
+// gestiona los eventos click que ocurren dentro del contenedor de la línea de tiempo de tareas
+// Asocia un listener de clic al elemento HTML con id="timelineContainer"
+document.getElementById("timelineContainer").addEventListener("click", (e) => { 
   const index = parseInt(e.target.dataset.index, 10);
 
   if (e.target.classList.contains("btn-danger")) {

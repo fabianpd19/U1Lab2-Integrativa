@@ -32,7 +32,8 @@ export default class TaskManager {
     }
   }
 
-  getTasks() {
+  getTasks() {  // Proveer acceso a la lista de tareas almacenada en el objeto TaskManager.
     return this.tasks;
   }
 }
+
