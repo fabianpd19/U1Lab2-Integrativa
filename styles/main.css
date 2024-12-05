@@ -5,7 +5,7 @@ body {
 
 /* Header personalizado */
 .custom-header {
-    background: linear-gradient(135deg, #007bff, #4c69ff);
+    background: linear-gradient(135deg, #000000, #4c69ff);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -46,7 +46,7 @@ body {
 
 /* Botones */
 .custom-btn {
-    background-color: #4c69ff;
+    background-color: #272727;
     color: white;
     border-radius: 25px;
     font-size: 1rem;
