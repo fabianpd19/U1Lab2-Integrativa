@@ -8,6 +8,8 @@ export default class TaskManager {
     this.tasks.sort((a, b) => new Date(a.start_time) - new Date(b.start_time));
   }
 
+
+
   removeTask(index) {
     // Debe ser menor que la longitud del array de tareas (dentro del rango válido).
     if (index >= 0 && index < this.tasks.length) {
