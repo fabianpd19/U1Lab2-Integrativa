@@ -9,11 +9,22 @@
     --success-color: #22c55e;
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f9f9f9;
+    --icon-color: #007bff;
 
     /* Variables para el tema oscuro */
     --dark-background: #0f172a;
     --dark-text: #f8fafc;
     --dark-secondary: #d1d5db;
+}
+
+body.dark-mode {
+    --bg-color: #333333;
+    --text-color: #f8fafc;
+    --card-bg: #0f172a;
+    --icon-color: #64748b;
 }
 
 /* General Styles */
@@ -90,7 +101,7 @@ body.dark-mode {
     padding: 2.5rem;
     border-radius: 20px;
     background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     height: 100%;
 }
@@ -105,7 +116,7 @@ body.dark-mode {
     background: white;
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
 
@@ -187,13 +198,17 @@ body.dark-mode .footer {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.custom-card, .service-card, .team-card, .testimonial-card {
+.custom-card,
+.service-card,
+.team-card,
+.testimonial-card {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
@@ -207,6 +222,7 @@ body.dark-mode .footer {
         font-size: 2.5rem;
     }
 }
+
 /* Estilos para las fechas (inicio y fin de la tarea) */
 .date-task {
     font-weight: 500;
@@ -215,32 +231,40 @@ body.dark-mode .footer {
 
 /* Modo oscuro */
 body.dark-mode .date-task {
-    color: var(--dark-secondary);  /* Gris claro para las fechas en modo oscuro */
+    color: var(--dark-secondary);
+    /* Gris claro para las fechas en modo oscuro */
 }
 
 /* Modo claro */
 body.light-mode .date-task {
-    color: var(--secondary-color);  /* Color oscuro para las fechas en modo claro */
+    color: var(--secondary-color);
+    /* Color oscuro para las fechas en modo claro */
 }
 
 /* Boton de añadir tarea    */
 
 /* Estilos para el botón en modo claro */
 .btn.custom-btn {
-    color: #ffffff;  /* Color de texto oscuro en modo claro */
-    background-color: #3f42d7;  /* Color de fondo en modo claro */
+    color: #ffffff;
+    /* Color de texto oscuro en modo claro */
+    background-color: #3f42d7;
+    /* Color de fondo en modo claro */
 }
 
 .btn.custom-btn:hover {
-    color: #fff;  /* Cambiar color de texto a blanco cuando el botón está en hover */
+    color: #fff;
+    /* Cambiar color de texto a blanco cuando el botón está en hover */
 }
 
 /* Estilos para el botón en modo oscuro */
 body.dark-mode .btn.custom-btn {
-    color: #f8fafc;  /* Color de texto claro (blanco) en modo oscuro */
-    background-color: #4f46e5;  /* Color de fondo para el modo oscuro */
+    color: #f8fafc;
+    /* Color de texto claro (blanco) en modo oscuro */
+    background-color: #4f46e5;
+    /* Color de fondo para el modo oscuro */
 }
 
 body.dark-mode .btn.custom-btn:hover {
-    color: #333;  /* Cambiar el texto a oscuro cuando está en hover en modo oscuro */
+    color: #333;
+    /* Cambiar el texto a oscuro cuando está en hover en modo oscuro */
 }
