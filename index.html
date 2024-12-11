@@ -15,33 +15,39 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Sistema de Gestión de tareas</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#servicios">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tareas">Tareas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#equipo">Equipo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonios">Testimonios</a>
-                    </li>
-                </ul>
-            </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Sistema de Gestión de tareas</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tareas">Tareas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#equipo">Equipo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonios">Testimonios</a>
+                </li>
+                <!-- Aquí agregamos el Web Component para cambiar el tema -->
+                <li class="nav-item">
+                    <theme-switcher></theme-switcher> <!-- El Web Component -->
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
 
     <!-- Hero Section -->
     <section id="inicio" class="hero-section">
@@ -184,7 +190,7 @@
                             <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="User" class="me-3">
                             <div>
                                 <h5 class="mb-0">Roberto Silva</h5>
-                                <small class="text-muted">Emprendedor</small>
+                                <small class="mb-0">Emprendedor</small>
                             </div>
                         </div>
                         <p class="mb-0">"El sistema de gestión de tareas ha revolucionado la forma en que gestiono mis
@@ -198,7 +204,7 @@
                             <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User" class="me-3">
                             <div>
                                 <h5 class="mb-0">Laura Torres</h5>
-                                <small class="text-muted">Diseñadora Freelance</small>
+                                <small class="mb-0">Diseñadora Freelance</small>
                             </div>
                         </div>
                         <p class="mb-0">"Desde que empecé a usar el sistema, mi productividad ha aumentado
@@ -211,7 +217,7 @@
                             <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="User" class="me-3">
                             <div>
                                 <h5 class="mb-0">Miguel Ángel</h5>
-                                <small class="text-muted">Project Manager</small>
+                                <small class="mb-0">Project Manager</small>
                             </div>
                         </div>
                         <p class="mb-0">"La mejor herramienta de gestión de tareas que he probado. Simple, efectiva y
@@ -255,6 +261,7 @@
         </div>
     </footer>
 
+<script src="scripts/themeSwitcher.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="./scripts/main.js"></script>

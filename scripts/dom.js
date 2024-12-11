@@ -25,7 +25,7 @@ export function updateTimeline(tasks) {
 
     // Información de inicio y fin
     const taskTime = document.createElement("p");
-    taskTime.className = "text-muted small";
+    taskTime.className = "date-task";
     taskTime.innerHTML = `<strong>Inicio:</strong> ${new Date(
       task.start_time
     ).toLocaleString()} | <strong>Fin:</strong> ${new Date(
