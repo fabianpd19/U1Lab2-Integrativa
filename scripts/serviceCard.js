@@ -51,4 +51,4 @@ class ServiceCard extends HTMLElement {
   }
 }
 
-customElements.define("service-card", ServiceCard);
+window.customElements.define("service-card", ServiceCard);
