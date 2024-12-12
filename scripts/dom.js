@@ -2,82 +2,63 @@ export function updateTimeline(tasks) {
   const timelineContainer = document.getElementById("timelineContainer");
   timelineContainer.innerHTML = ""; // Limpiar la línea de tiempo
 
+  // Obtener el template
+  const template = document.getElementById("task-template");
+
   tasks.forEach((task, index) => {
-    // Crear el contenedor principal de la tarea
-    const colDiv = document.createElement("div");
-    colDiv.className = "col-md-6";
+    // Clonar el template
+    const taskElement = template.content.cloneNode(true);
+    
+    // Obtener elementos del template clonado
+    const colDiv = taskElement.querySelector(".col-md-6");
+    const customCard = taskElement.querySelector(".custom-card");
+    const taskTitle = taskElement.querySelector(".custom-task-title");
+    const taskDescription = taskElement.querySelector(".task-description");
+    const taskTime = taskElement.querySelector(".date-task");
+    const completeButton = taskElement.querySelector(".complete-btn");
+    const undoButton = taskElement.querySelector(".undo-btn");
+    const deleteButton = taskElement.querySelector(".delete-btn");
 
-    // Crear el contenedor estilizado para la tarea
-    const customCard = document.createElement("div");
-    customCard.className = `custom-card shadow-sm p-3 ${
-      task.completed ? "" : ""
-    }`; // Si la tarea está realizada, se añade una clase de estilo diferente
-
-    // Título de la tarea
-    const taskTitle = document.createElement("h5");
-    taskTitle.className = "custom-task-title";
+    // Actualizar contenido
     taskTitle.textContent = task.title;
-
-    // Descripción de la tarea
-    const taskDescription = document.createElement("p");
-    taskDescription.className = "mb-2";
     taskDescription.textContent = task.description;
-
-    // Información de inicio y fin
-    const taskTime = document.createElement("p");
-    taskTime.className = "date-task";
     taskTime.innerHTML = `<strong>Inicio:</strong> ${new Date(
       task.start_time
     ).toLocaleString()} | <strong>Fin:</strong> ${new Date(
       task.end_time
     ).toLocaleString()}`;
 
-    // Botón de marcar como realizada
-    const completeButton = document.createElement("button");
-    completeButton.className = "btn btn-success btn-sm me-2"; // Botón de éxito
-    completeButton.textContent = "Marcar como realizada"; // Texto del botón
-    completeButton.dataset.index = index; // Guardar el índice de la tarea
-
-    // Botón de eliminar
-    const deleteButton = document.createElement("button");
-    deleteButton.className = "btn btn-danger btn-sm"; // Botón de eliminar
-    deleteButton.textContent = "Eliminar"; // Texto del botón
-    deleteButton.dataset.index = index; // Guardar el índice de la tarea
-
-    const undoButton = document.createElement("button");
-    undoButton.className = "btn btn-warning btn-sm me-2";
-    undoButton.textContent = "Deshacer";
+    // Configurar botones
+    completeButton.dataset.index = index;
     undoButton.dataset.index = index;
-    undoButton.style.display = task.completed ? "inline-block" : "none"; // Mostrar solo si está completada
+    deleteButton.dataset.index = index;
 
-    // Añadir los elementos al contenedor de la tarjeta
-    customCard.appendChild(taskTitle);
-    customCard.appendChild(taskDescription);
-    customCard.appendChild(taskTime);
-    customCard.appendChild(completeButton);
-    customCard.appendChild(undoButton);
-    customCard.appendChild(deleteButton);
+    // Mostrar/ocultar botones según el estado
+    if (task.completed) {
+      customCard.classList.add("completed");
+      completeButton.style.display = "none";
+      undoButton.style.display = "inline-block";
+    } else {
+      customCard.classList.remove("completed");
+      completeButton.style.display = "inline-block";
+      undoButton.style.display = "none";
+    }
 
-    // Añadir la tarjeta al contenedor de columna
-    colDiv.appendChild(customCard);
-
-    // Añadir la columna al contenedor principal
-    timelineContainer.appendChild(colDiv);
+    // Añadir el elemento clonado al contenedor
+    timelineContainer.appendChild(taskElement);
   });
 
   // Actualizar barra de progreso
-  updateProgress(tasks); // Llama a la función para actualizar la barra de progreso
+  updateProgress(tasks);
 }
 
 export function updateProgress(tasks) {
-  // Filtrar las tareas completadas
   const completedTasks = tasks.filter((task) => task.completed).length;
-  const totalTasks = tasks.length; // Número total de tareas
+  const totalTasks = tasks.length;
   const progress =
-    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100); // Calcular el porcentaje de progreso
+    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
 
-  // Actualizar la barra de progreso
   const progressBar = document.getElementById("progressBar");
-  progressBar.style.width = `${progress}%`; // Cambiar el ancho de la barra
-  progressBar.textContent = `${progress}% Completado`; // Mostrar el porcentaje en texto
+  progressBar.style.width = `${progress}%`;
+  progressBar.textContent = `${progress}% Completado`;
 }
