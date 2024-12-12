@@ -8,7 +8,7 @@ export function updateTimeline(tasks) {
   tasks.forEach((task, index) => {
     // Clonar el template
     const taskElement = template.content.cloneNode(true);
-    
+
     // Obtener elementos del template clonado
     const colDiv = taskElement.querySelector(".col-md-6");
     const customCard = taskElement.querySelector(".custom-card");

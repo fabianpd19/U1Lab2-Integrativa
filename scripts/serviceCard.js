@@ -5,18 +5,30 @@ class ServiceCard extends HTMLElement {
   }
 
   connectedCallback() {
+    this.shadowRoot.innerHTML = this.shadowRoot.innerHTML = `
+    ${this.templateCss()}
+    ${this.templateHtml()}
+     `;
+  }
+
+  templateHtml() {
     const icon = this.getAttribute("icon") || "fa-tasks";
     const title = this.getAttribute("title") || "Título del Servicio";
     const description =
       this.getAttribute("description") || "Descripción del servicio";
 
-    this.shadowRoot.innerHTML = `
-            <div class="service-card">
+    return `
+        <div class="service-card">
                 <i class="fas ${icon} fa-3x mb-3"></i>
                 <h3>${title}</h3>
                 <p>${description}</p>
             </div>
-            <style>
+    `;
+  }
+
+  templateCss() {
+    return `
+    <style>
                 :host {
                     display: block;
                 }
@@ -45,9 +57,7 @@ class ServiceCard extends HTMLElement {
                     font-size: 1rem;
                 }
             </style>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-        `;
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">`;
   }
 }
 
