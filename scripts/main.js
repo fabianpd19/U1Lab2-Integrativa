@@ -1,5 +1,5 @@
 import TaskManager from "./TaskManager.js";
-import { updateTimeline } from "./dom.js";
+import { domManager } from "./dom.js";
 
 // Inicializar el TaskManager
 const taskManager = new TaskManager();
@@ -39,7 +39,7 @@ document.getElementById("taskForm").addEventListener("submit", (e) => {
   taskManager.addTask(newTask);
 
   // Actualizar la línea de tiempo
-  updateTimeline(taskManager.getTasks());
+  domManager.updateTimeline(taskManager.getTasks());
 
   // Limpiar formulario
   e.target.reset();
@@ -49,27 +49,23 @@ document.getElementById("taskForm").addEventListener("submit", (e) => {
 document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.getElementById('toggleFormBtn');
     const formSection = document.getElementById('formSection');
-    
-    if (toggleBtn && formSection) {
-        const btnIcon = toggleBtn.querySelector('i');
+    const btnIcon = toggleBtn.querySelector('i');
 
-        toggleBtn.addEventListener('click', function() {
-            formSection.classList.toggle('visible');
-            if (formSection.classList.contains('visible')) {
-                btnIcon.classList.remove('fa-plus');
-                btnIcon.classList.add('fa-minus');
-                toggleBtn.style.background = 'linear-gradient(45deg, #dc3545, #c82333)';
-            } else {
-                btnIcon.classList.remove('fa-minus');
-                btnIcon.classList.add('fa-plus');
-                toggleBtn.style.background = 'linear-gradient(45deg, #007bff, #0056b3)';
-            }
-        });
-    }
+    toggleBtn.addEventListener('click', function() {
+        formSection.classList.toggle('visible');
+        if (formSection.classList.contains('visible')) {
+            btnIcon.classList.remove('fa-plus');
+            btnIcon.classList.add('fa-minus');
+            toggleBtn.style.background = 'linear-gradient(45deg, #dc3545, #c82333)';
+        } else {
+            btnIcon.classList.remove('fa-minus');
+            btnIcon.classList.add('fa-plus');
+            toggleBtn.style.background = 'linear-gradient(45deg, #007bff, #0056b3)';
+        }
+    });
 });
 
 // gestiona los eventos click que ocurren dentro del contenedor de la línea de tiempo de tareas
-// Asocia un listener de clic al elemento HTML con id="timelineContainer"
 document.getElementById("timelineContainer").addEventListener("click", (e) => { 
   const index = parseInt(e.target.dataset.index, 10);
 
@@ -77,19 +73,19 @@ document.getElementById("timelineContainer").addEventListener("click", (e) => {
     // Si se hace clic en un botón de eliminar
     const index = parseInt(e.target.dataset.index, 10); // Obtener índice de la tarea
     taskManager.removeTask(index); // Eliminar tarea del TaskManager
-    updateTimeline(taskManager.getTasks()); // Actualizar la línea de tiempo
+    domManager.updateTimeline(taskManager.getTasks()); // Actualizar la línea de tiempo
   }
 
   if (e.target.classList.contains("btn-success")) {
     // Si se hace clic en un botón de marcar como realizada
     const index = parseInt(e.target.dataset.index, 10); // Obtener índice de la tarea
     taskManager.markAsCompleted(index); // Marcar tarea como realizada en el TaskManager
-    updateTimeline(taskManager.getTasks()); // Actualizar la línea de tiempo
+    domManager.updateTimeline(taskManager.getTasks()); // Actualizar la línea de tiempo
   }
 
   if (e.target.classList.contains("btn-warning")) {
     // Manejar botón "Deshacer"
     taskManager.unmarkAsCompleted(index); // Desmarcar tarea como completada
-    updateTimeline(taskManager.getTasks());
+    domManager.updateTimeline(taskManager.getTasks());
   }
 });
