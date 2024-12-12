@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/custom.css">
 </head>
 
 <body>
@@ -70,9 +71,15 @@
 
     <!-- Task Management Section -->
     <main class="container py-5" id="tareas">
+        <div class="add-task-container">
+            <button class="add-task-btn" id="toggleFormBtn">
+                <i class="fas fa-plus"></i> Añadir Nueva Tarea
+            </button>
+        </div>
+
         <!-- Sección del formulario -->
-        <section class="mb-5">
-            <div class="custom-card shadow-lg p-4">
+        <section class="mb-5 form-container d-none opacity-0" id="formSection">
+            <div class="custom-card transparent shadow-lg p-4">
                 <h2 class="text-center custom-title mb-4">Añadir Tarea</h2>
                 <form id="taskForm">
                     <div class="mb-3">
@@ -106,9 +113,9 @@
         <section class="mb-5">
             <h3 class="text-center custom-title mb-3">Progreso</h3>
             <div class="progress">
-                <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%;"
-                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                    0% Completado
+                <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0"
+                    aria-valuemin="0" aria-valuemax="100">
+                    0%
                 </div>
             </div>
         </section>
@@ -149,6 +156,25 @@
     <script src="scripts/themeSwitcher.js"></script>
     <!-- CustomElement -->
     <script src="scripts/serviceCard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleFormBtn');
+            const formSection = document.getElementById('formSection');
+            const btnIcon = toggleBtn.querySelector('i');
+
+            toggleBtn.addEventListener('click', function() {
+                formSection.classList.toggle('d-none');
+                formSection.classList.toggle('opacity-0');
+                if (formSection.classList.contains('opacity-0')) {
+                    btnIcon.classList.remove('fa-minus');
+                    btnIcon.classList.add('fa-plus');
+                } else {
+                    btnIcon.classList.remove('fa-plus');
+                    btnIcon.classList.add('fa-minus');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

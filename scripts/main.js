@@ -45,6 +45,28 @@ document.getElementById("taskForm").addEventListener("submit", (e) => {
   e.target.reset();
 });
 
+// Funcionalidad para mostrar/ocultar el formulario de tareas
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggleFormBtn');
+    const formSection = document.getElementById('formSection');
+    
+    if (toggleBtn && formSection) {
+        const btnIcon = toggleBtn.querySelector('i');
+
+        toggleBtn.addEventListener('click', function() {
+            formSection.classList.toggle('visible');
+            if (formSection.classList.contains('visible')) {
+                btnIcon.classList.remove('fa-plus');
+                btnIcon.classList.add('fa-minus');
+                toggleBtn.style.background = 'linear-gradient(45deg, #dc3545, #c82333)';
+            } else {
+                btnIcon.classList.remove('fa-minus');
+                btnIcon.classList.add('fa-plus');
+                toggleBtn.style.background = 'linear-gradient(45deg, #007bff, #0056b3)';
+            }
+        });
+    }
+});
 
 // gestiona los eventos click que ocurren dentro del contenedor de la línea de tiempo de tareas
 // Asocia un listener de clic al elemento HTML con id="timelineContainer"
