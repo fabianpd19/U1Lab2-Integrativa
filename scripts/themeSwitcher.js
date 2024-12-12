@@ -68,5 +68,5 @@ class ThemeSwitcher extends HTMLElement {
   }
   
   // Registrar el Web Component
-  customElements.define('theme-switcher', ThemeSwitcher);
+window.customElements.define('theme-switcher', ThemeSwitcher);
   
