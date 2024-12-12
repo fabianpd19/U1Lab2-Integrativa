@@ -1,61 +1,83 @@
-class ServiceCard extends HTMLElement {
+class TeamCard extends HTMLElement {
   constructor() {
     super();
+    this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
-    // Inyectar contenido HTML y estilos en el elemento
-    this.innerHTML = `
-      ${this.templateCss()}
-      ${this.templateHtml()}
+    this.shadowRoot.innerHTML = `
+    ${this.templateCss()}
+    ${this.templateHtml()}
     `;
   }
 
   templateHtml() {
-    const icon = this.getAttribute("icon") || "fa-tasks";
-    const title = this.getAttribute("title") || "Título del Servicio";
-    const description =
-      this.getAttribute("description") || "Descripción del servicio";
+    const name = this.getAttribute("name") || "Anonymous";
+    const role = this.getAttribute("role") || "Role not specified";
+    const image =
+      this.getAttribute("image") || "https://via.placeholder.com/150";
+    const email = this.getAttribute("email") || "No email provided";
 
     return `
-      <div class="service-card">
-          <i class="fas ${icon} fa-3x mb-3"></i>
-          <h3>${title}</h3>
-          <p>${description}</p>
-      </div>
+    <div class="team-card">
+      <img src="${image}" alt="${name}'s photo" />
+      <h2>${name}</h2>
+      <p>${role}</p>
+      <a href="mailto:${email}">${email}</a>
+    </div>
+
     `;
   }
 
   templateCss() {
     return `
-    <style>
-      .service-card {
-          text-align: center;
-          background-color: var(--card-bg, #fff);
-          color: var(--text-color, #333);
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-      }
-      .service-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-      }
-      .service-card i {
-          color: var(--icon-color, #007bff);
-      }
-      .service-card h3 {
-          font-size: 1.25rem;
-          margin: 15px 0;
-      }
-      .service-card p {
-          font-size: 1rem;
-      }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    `;
+        <style>
+          .team-card {
+            display: block;
+            margin: 15px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background: var(--card-bg, #fff);
+            color: var(--text-color, #333);
+            font-family: Arial, sans-serif;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+          }
+          .team-card {
+            text-align: center;
+            padding: 20px;
+          }
+          .team-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+          }
+          .team-card h2 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: inherit;
+          }
+          .team-card p {
+            font-size: 0.9rem;
+            margin: 5px 0 10px;
+          }
+          .team-card a {
+            font-size: 0.9rem;
+            color: var(--link-color, #007BFF);
+            text-decoration: none;
+          }
+          .team-card a:hover {
+            text-decoration: underline;
+          }
+        </style>
+      `;
   }
 }
 
-window.customElements.define("service-card", ServiceCard);
+window.customElements.define("team-card", TeamCard);
